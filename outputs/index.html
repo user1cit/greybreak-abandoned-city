@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Greybreak: Abandoned City</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main id="shell">
+      <canvas id="game" aria-label="Greybreak abandoned city game"></canvas>
+
+      <section id="topHud" class="hud-strip" aria-label="Player condition">
+        <div class="stat">
+          <span class="stat-label">Health</span>
+          <div class="bar"><span id="healthBar"></span></div>
+          <strong id="healthText">100</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Hunger</span>
+          <div class="bar"><span id="hungerBar"></span></div>
+          <strong id="hungerText">100</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Stamina</span>
+          <div class="bar"><span id="staminaBar"></span></div>
+          <strong id="staminaText">100</strong>
+        </div>
+      </section>
+
+      <aside id="questPanel" class="panel">
+        <div class="panel-title">City Log</div>
+        <div id="quests"></div>
+      </aside>
+
+      <aside id="inventoryPanel" class="panel">
+        <div class="panel-title">Pack</div>
+        <div id="weapon"></div>
+        <div id="inventory"></div>
+      </aside>
+
+      <div id="prompt"></div>
+      <div id="messageLog" aria-live="polite"></div>
+
+      <div id="reticle" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </div>
+
+      <button id="settingsButton" class="icon-button" type="button" aria-label="Open settings" title="Settings">
+        <span aria-hidden="true">⚙</span>
+      </button>
+
+      <section id="settingsOverlay" class="settings-modal hidden" aria-label="Game settings">
+        <div class="settings-window">
+          <header class="settings-header">
+            <div>
+              <div class="panel-title">Settings</div>
+              <h2>Game and controls</h2>
+            </div>
+            <button id="closeSettingsButton" class="icon-button" type="button" aria-label="Close settings" title="Close settings">×</button>
+          </header>
+
+          <div class="settings-grid">
+            <label class="setting-row" for="mouseSensitivity">
+              <span>Mouse sensitivity</span>
+              <output id="mouseSensitivityValue">1.0</output>
+              <input id="mouseSensitivity" type="range" min="0.5" max="2" step="0.1">
+            </label>
+
+            <label class="setting-check" for="soundEnabled">
+              <input id="soundEnabled" type="checkbox">
+              <span>Sound effects</span>
+            </label>
+
+            <label class="setting-check" for="showHud">
+              <input id="showHud" type="checkbox">
+              <span>Show HUD panels</span>
+            </label>
+
+            <div class="controls-list" id="controlsList" aria-label="Controls list"></div>
+          </div>
+
+          <footer class="settings-actions">
+            <button id="resetSettingsButton" type="button">Reset Defaults</button>
+            <button id="saveSettingsButton" type="button">Save Settings</button>
+          </footer>
+        </div>
+      </section>
+
+      <section id="startOverlay" class="overlay">
+        <div class="brand">Greybreak</div>
+        <p>Find supplies, restore the radio relay, and get out through the dead tram line.</p>
+        <button id="startButton" type="button">Enter City</button>
+      </section>
+
+      <section id="endOverlay" class="overlay hidden">
+        <div id="endTitle" class="brand">Signal Sent</div>
+        <p id="endText"></p>
+        <button id="restartButton" type="button">Restart Run</button>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
