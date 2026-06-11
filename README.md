@@ -2,7 +2,7 @@
 
 A browser-playable first-person survival RPG inspired by early 1990s raycasting shooters, set in an abandoned city.
 
-Open `outputs/index.html` directly in a browser, or serve the `outputs` folder with any static web server.
+Open `index.html` directly in a browser. The root page forwards to the playable game in `outputs/index.html`.
 
 ## Controls
 
